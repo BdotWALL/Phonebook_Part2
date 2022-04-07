@@ -4,12 +4,12 @@ const morgan = require('morgan')
 
 app.use(express.json())
 
-//(optional) Step 7. Add the morgan middleware to your application for logging. 
+//Step 7. Add the morgan middleware to your application for logging. 
 // Configure it to log messages to your console based on the tiny configuration.
 app.use(morgan(
   ':method :url :status :res[content-length] - :response-time ms :person'))
 
-// (optional) Step 8. Configure morgan so that it also shows the data sent in HTTP POST requests:
+// Step 8. Configure morgan so that it also shows the data sent in HTTP POST requests:
 morgan.token('person', (request) => {
 if (request.method === 'POST') return JSON.stringify(request.body)
 })
